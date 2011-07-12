@@ -1,0 +1,35 @@
+{
+  "name": "Labs for Google Plus",
+  "version": "2.0.0",
+  "description": "Extends Google+ with a couple of neat labs features.",
+  "icons": {
+    "16": "img/icon16.png",
+    "32": "img/icon32.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "https://plus.google.com/*",
+    "http://plus.google.com/*",
+    "http://talkgadget.google.com/*",
+    "https://talkgadget.google.com/*"
+   ],
+  "options_page": "options.html",
+  "background_page": "background.html",
+  "content_scripts": [{
+      "matches": [
+        "https://plus.google.com/*",
+        "http://plus.google.com/*",
+        "http://talkgadget.google.com/*",
+        "https://talkgadget.google.com/*"
+       ],
+      "js": [
+        "js/functions.js",
+        "js/labs_enum.js",
+        "js/injection.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+  }]
+}
