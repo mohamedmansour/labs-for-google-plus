@@ -1,8 +1,11 @@
 Google+ Labs for Chrome Extension
 =====================================
 
-This Google Chrome extension will inject a link to your Google Plus profile so
-that you can share your post to Twitter or Facebook.
+This Google chrome extension will allow individual extensions to run inside a single extension,
+this provides a single management system without having to manage tons of extensions.
+
+Focused around Google+, The custom *mini-scripts* to improve your time on Google+ can be activated / deactivated
+using the options page.
 
 Contribute!
 -----------------
