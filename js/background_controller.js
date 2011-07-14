@@ -27,6 +27,19 @@ BackgroundController.prototype.onExtensionLoaded = function()
 };
 
 /**
+ * Check if the URL is a valid URL that we support for injection and processing.
+ *
+ * @param {string} url The URL to check.
+ */
+BackgroundController.prototype.isValidURL = function(url)
+{
+  return (url.indexOf('https://plus.google.com') == 0 ||
+      url.indexOf('http://plus.google.com') == 0 ||
+      url.indexOf('https://talkgadget.google.com') == 0 ||
+      url.indexOf('http://talkgadget.google.com') == 0)
+};
+
+/**
  * Triggered when the extension just installed.
  */
 BackgroundController.prototype.onInstall = function()
@@ -44,19 +57,6 @@ BackgroundController.prototype.onInstall = function()
       }
     }
   });
-};
-
-/**
- * Check if the URL is a valid URL that we support for injection and processing.
- *
- * @param {string} url The URL to check.
- */
-BackgroundController.prototype.isValidURL = function(url)
-{
-  return (url.indexOf('https://plus.google.com') == 0 ||
-      url.indexOf('http://plus.google.com') == 0 ||
-      url.indexOf('https://talkgadget.google.com') == 0 ||
-      url.indexOf('http://talkgadget.google.com') == 0)
 };
 
 /**
