@@ -31,7 +31,8 @@ Injection.prototype.onModulesReceived = function(response)
     var module = modules[m];
     var lab = LabsEnum[module.toUpperCase()];
     if (lab.content_script) {
-      loadScript('/js/' + module + '/content_script.js');
+      var oHead = document.getElementsByTagName("head")[0] || document.documentElement;
+      loadScript(oHead, '/js/' + module + '/content_script.js');
     }
   }
   console.log(modules);
