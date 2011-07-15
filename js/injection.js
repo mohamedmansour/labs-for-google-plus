@@ -24,7 +24,7 @@ Injection.prototype.onModulesReceived = function(response)
 {
   // Preload the content script module only since it is activated.
   var modules = response.data;
-  
+
   // TODO(mohamed): Define a Plugins Manifest page so we can define what injection
   //                points exist.
   for (var m in modules) {
@@ -49,13 +49,13 @@ Injection.prototype.onModulesReceived = function(response)
 };
 
 /**
- * Google Plus has an HTML5 push API. This somehow doesn't play well with 
+ * Google Plus has an HTML5 push API. This somehow doesn't play well with
  * DOMSubtreeModified so something like this will fix issues where the posts
  * do not get updated when we visit another tab.
  *
  * @param {Object} request The request sent by the calling script.
  * @param {Object<MessageSender>} sender The location where the script has spawned.
- * @param {Function} request Function to call when you have a response. The 
+ * @param {Function} request Function to call when you have a response. The
                               argument should be any JSON-ifiable object, or
                               undefined if there is no response.
  */
@@ -95,11 +95,12 @@ Injection.prototype.renderItem = function(itemDOM)
  *
  * @param {Object<MutationEvent>} e modified event.
  */
-Injection.prototype.onNewPost = function(e)
-{
-  if (e.target.id.indexOf('update') == 0) {
-    this.renderItem(e.target);
-  }
+Injection.prototype.onNewPost = function(e) {
+	if (e.target.id) {
+		if (e.target.id.indexOf('update') == 0) {
+			this.renderItem(e.target);
+		}
+	} // if got e.target.id at all
 };
 
 

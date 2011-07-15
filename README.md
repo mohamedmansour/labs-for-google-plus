@@ -28,4 +28,3 @@ This project is being developed over Hangout contributed by the Google+ Communit
 Icons
 ------
 Based on a work at [www.komodomedia.com](http://www.komodomedia.com/download/#social-network-icon-pack).
-

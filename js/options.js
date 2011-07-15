@@ -1,4 +1,4 @@
-// Extensions pages can all have access to the bacground page.
+// Extensions pages can all have access to the background page.
 var bkg = chrome.extension.getBackgroundPage();
 
 // When the DOM is loaded, make sure all the saved info is restored.
@@ -62,7 +62,7 @@ function onRestore() {
       container_modules.appendChild(createLabItem(lab));
     }
   }
-  
+
   if (bkg.settings.modules) {
     var modules = bkg.settings.modules;
     for (var lab in modules) {
@@ -77,7 +77,7 @@ function onRestore() {
 function createLabItem(labItem) {
   //var container = document.createElement('p');
   var item = labItem.toLowerCase();
-  
+
   // Render label.
   var label = document.createElement('label');
   label.setAttribute('for', item);
@@ -95,19 +95,6 @@ function createLabItem(labItem) {
   input.setAttribute('name', 'modules');
   input.setAttribute('id', item);
   label.appendChild(input);
-  
+
   return label;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
