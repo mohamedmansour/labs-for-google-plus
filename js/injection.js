@@ -31,10 +31,9 @@ Injection.prototype.onModulesReceived = function(response)
     var module = modules[m];
     var lab = LabsEnum[module.toUpperCase()];
     if (lab.content_script) {
-      loadScript('/js/' + module + '/content_script.js');
+      loadScript(document.body, '/js/' + module + '/content_script.js');
     }
   }
-  console.log(modules);
 
   // Listen on new external extension requests coming from the extension process.
   chrome.extension.onRequest.addListener(this.onExtensionRequest.bind(this));
