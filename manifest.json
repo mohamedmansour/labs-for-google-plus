@@ -1,6 +1,6 @@
 {
   "name": "Labs for Google Plus",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Extends Google+ with a couple of neat labs features.",
   "icons": {
     "16": "img/icon16.png",
@@ -11,25 +11,63 @@
   "permissions": [
     "tabs",
     "https://plus.google.com/*",
-    "http://plus.google.com/*",
-    "http://talkgadget.google.com/*",
     "https://talkgadget.google.com/*"
    ],
   "options_page": "options.html",
   "background_page": "background.html",
-  "content_scripts": [{
+  "content_scripts": [
+    {
       "matches": [
-        "https://plus.google.com/*",
-        "http://plus.google.com/*",
-        "http://talkgadget.google.com/*",
-        "https://talkgadget.google.com/*"
+        "https://plus.google.com/*"
        ],
+      "css": [
+        "css/plus.css"
+      ],
       "js": [
-        "js/functions.js",
-        "js/labs_enum.js",
-        "js/injection.js"
+        "js/base.js",
+        "js/injection_plus.js"
       ],
       "run_at": "document_end",
       "all_frames": true
-  }]
+    }, 
+    {
+      "matches": [
+        "https://talkgadget.google.com/talkgadget/*"
+       ],
+      "css": [
+        "css/talk.css"
+      ],
+      "js": [
+        "js/base.js",
+        "js/injection_talk.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }, 
+    {
+      "matches": [
+        "https://talkgadget.google.com/hangouts/*"
+       ],
+      "css": [
+        "css/hangout.css"
+      ],
+      "js": [
+        "js/base.js",
+        "js/injection_hangout.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }, 
+    {
+      "matches": [
+        "https://googlesharedspaces.appspot.com/p/tuna*"
+       ],
+      "js": [
+        "js/base.js",
+        "js/injection_user.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ]
 }

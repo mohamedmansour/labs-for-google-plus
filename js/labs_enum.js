@@ -1,7 +1,7 @@
-
 /**
  * Different Google Plus Labs extensions
  * 
+ * @author Mohamed Mansour 2011 (http://mohamedmansour.com)
  * @enum {Object<string>}
  */
 LabsEnum = {

@@ -1,8 +1,8 @@
-
 /**
  * Different Google Plus Modules for different Labs Features. These are basically
  * different access sections.
  * 
+ * @author Mohamed Mansour 2011 (http://mohamedmansour.com)
  * @enum {Object<number, number>}
  */
 PlusSection = {
@@ -17,7 +17,6 @@ PlusSection = {
  * @param {string} val The enum name as a text.
  * @return {Object<PositionEnum>} the enum value.
  */
-PlusSection.valueOf = function(val)
-{
+PlusSection.valueOf = function(val) {
   return LabsModule[val.toUpperCase()];
 };

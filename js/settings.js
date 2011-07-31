@@ -1,4 +1,8 @@
-// Global Settings.
+/**
+ * Global Settings in the extension process.
+ *
+ * @author Mohamed Mansour 2011 (http://mohamedmansour.com)
+ */
 settings = {
   get version() {
     return localStorage['version'];

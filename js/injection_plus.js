@@ -1,8 +1,9 @@
 /**
+ * Plus Content Script injection.
  *
+ * @author Mohamed Mansour 2011 (http://mohamedmansour.com)
  */
-Injection = function()
-{
+Injection = function() {
   this.STREAM_CONTAINER_CLASS = '.a-b-f-i-oa';
   this.TRAVERSED_CLASS = 'lfgp-crx';
 };
@@ -10,8 +11,7 @@ Injection = function()
 /**
  * Initilaization routine for loading all the content script modules.
  */
-Injection.prototype.init = function()
-{
+Injection.prototype.init = function() {
   chrome.extension.sendRequest({method: 'GetModules'}, this.onModulesReceived.bind(this));
 };
 
@@ -20,8 +20,7 @@ Injection.prototype.init = function()
  *
  * @param {Object} response  The response object that contains the list of modules.
  */
-Injection.prototype.onModulesReceived = function(response)
-{
+Injection.prototype.onModulesReceived = function(response) {
   // Preload the content script module only since it is activated.
   var modules = response.data;
   
@@ -67,8 +66,7 @@ Injection.prototype.onExtensionRequest = function(request, sender, sendResponse)
 /**
  * Render all the items in the current page.
  */
-Injection.prototype.renderAll = function()
-{
+Injection.prototype.renderAll = function() {
   var actionBars = document.querySelectorAll(this.STREAM_CONTAINER_CLASS);
   for (var i = 0; i < actionBars.length; i++) {
     this.renderItem(actionBars[i]);
@@ -80,8 +78,7 @@ Injection.prototype.renderAll = function()
  *
  * @param {Object<ModifiedDOM>} itemDOM modified event.
  */
-Injection.prototype.renderItem = function(itemDOM)
-{
+Injection.prototype.renderItem = function(itemDOM) {
   if (itemDOM && !itemDOM.classList.contains(this.TRAVERSED_CLASS)) {
     //console.log('New Item Received!', itemDOM);
     itemDOM.classList.add(this.TRAVERSED_CLASS);
@@ -93,8 +90,7 @@ Injection.prototype.renderItem = function(itemDOM)
  *
  * @param {Object<MutationEvent>} e modified event.
  */
-Injection.prototype.onNewPost = function(e)
-{
+Injection.prototype.onNewPost = function(e) {
   if (e.target.id.indexOf('update') == 0) {
     this.renderItem(e.target);
   }
