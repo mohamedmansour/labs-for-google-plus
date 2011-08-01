@@ -38,9 +38,9 @@ BackgroundController.prototype.onInstall = function() {
       for (var t = 0; t < tabs.length; t++) {
         var tab = tabs[t];
         if (self.isValidURL(tab.url)) {
-          chrome.tabs.executeScript(tab.id, { file: '/js/functions.js', allFrames: true }, function() {
+          chrome.tabs.executeScript(tab.id, { file: '/js/base.js', allFrames: true }, function() {
             chrome.tabs.executeScript(tab.id, { file: '/js/labs_enum.js', allFrames: true }, function() {
-              chrome.tabs.executeScript(tab.id, { file: '/js/injection.js', allFrames: true });
+              chrome.tabs.executeScript(tab.id, { file: '/js/injection_plus.js', allFrames: true });
             });
           });
         }
@@ -55,10 +55,7 @@ BackgroundController.prototype.onInstall = function() {
  * @param {string} url The URL to check.
  */
 BackgroundController.prototype.isValidURL = function(url) {
-  return (url.indexOf('https://plus.google.com') == 0 ||
-      url.indexOf('http://plus.google.com') == 0 ||
-      url.indexOf('https://talkgadget.google.com') == 0 ||
-      url.indexOf('http://talkgadget.google.com') == 0)
+  return (url.indexOf('https://plus.google.com') == 0)
 };
 
 /**
